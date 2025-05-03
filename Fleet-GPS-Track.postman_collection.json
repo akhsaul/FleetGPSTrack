@@ -1,0 +1,409 @@
+{
+	"info": {
+		"_postman_id": "e97cf967-5858-4fac-b4cd-6934f58e552c",
+		"name": "Fleet-GPS-Track",
+		"description": "A collection to test API Fleet GPS Track Back-End",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12626894"
+	},
+	"item": [
+		{
+			"name": "Get vehicle last location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/api/vehicles/{{vehicleId}}/last-location",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicles",
+						"{{vehicleId}}",
+						"last-location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get specific gps log",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/api/vehicles/{{vehicleId}}/history?from=2000-07-25T14:00:00Z&to=2025-02-26T10:00:00Z",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicles",
+						"{{vehicleId}}",
+						"history"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2000-07-25T14:00:00Z"
+						},
+						{
+							"key": "to",
+							"value": "2025-02-26T10:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all gps log",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/api/vehicles/{{vehicleId}}/history",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicles",
+						"{{vehicleId}}",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get gps log but 'from' is null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/api/vehicles/{{vehicleId}}/history?to=2025-02-26T10:00:00Z",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicles",
+						"{{vehicleId}}",
+						"history"
+					],
+					"query": [
+						{
+							"key": "to",
+							"value": "2025-02-26T10:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get gps log but 'to' is Null",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8080/api/vehicles/{{vehicleId}}/history?from=2000-07-25T14:00:00Z",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"vehicles",
+						"{{vehicleId}}",
+						"history"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2000-07-25T14:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add gps Log",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 201\", ()=>{\r",
+							"    pm.response.to.have.status(201);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and data\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'data');\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"vehicle_id\": 100,\r\n  \"latitude\": -75.993178,\r\n  \"longitude\": 162.017737,\r\n  \"speed\": 44.92,\r\n  \"time_stamp\": \"2023-12-18T22:03:43Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/api/gps",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"gps"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login jwt",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Should be 200\", ()=>{\r",
+							"    pm.response.to.have.status(200);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Check if response has status, message and token\", ()=>{\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.all.keys('status', 'message', 'token');\r",
+							"    pm.collectionVariables.set(\"token\", jsonData.token)\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Akhsaul",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "AkhsaulPassword",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8080/api/auth/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBa2hzYXVsIiwiaWF0IjoxNzQ2MjYyNjU3LCJleHAiOjE3NDYzNDkwNTd9.o1JMO4VW-mtJrRF2bmx80ff67Jq8nGYnAomDhYfogc78wdm-glHqYxNtzEzs9aX6_FngNsNf8oyyZ3_uN3uyZg"
+		},
+		{
+			"key": "vehicleId",
+			"value": "100",
+			"type": "string"
+		}
+	]
+}
