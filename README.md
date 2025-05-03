@@ -303,6 +303,15 @@ Status code: **403**
 Response body: **No response body**
 </details>
 
+## Features
+1. saving GPS log
+2. get vehicle last location
+3. get history of vehicle location with specific time range
+4. speed violation flag in GPS log
+5. validate all input from request and return useful error message
+6. automatic remove old GPS log
+7. JWT authentication for all endpoint with **hardcoded credential**
+
 ## Setup
 1. Set your environment with your specific configuration
 ```shell
@@ -314,3 +323,7 @@ set DB_PASSWORD=postgres
 ```shell
 ./gradlew bootRun
 ```
+3. Test with Postman Collection
+   - import file `Fleet-GPS-Track.postman_collection.json` into your Postman
+   - set vehicle id to collection environment (preferred) or global environment.
+   - run login endpoint to get JWT token (automatic set token to collection environment)
