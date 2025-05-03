@@ -65,9 +65,9 @@ ALTER SEQUENCE public.gps_log_id_seq OWNED BY public.gps_log.id;
 
 CREATE TABLE public.vehicle (
     id bigint NOT NULL,
-    plate_number character varying(250),
-    name character varying(250),
-    type character varying(250)
+    plate_number character varying(250) NOT NULL,
+    name character varying(250) NOT NULL,
+    type character varying(250) NOT NULL
 );
 
 
