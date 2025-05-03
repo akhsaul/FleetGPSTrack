@@ -306,7 +306,7 @@ Response body: **No response body**
 ## Setup
 1. Set your environment with your specific configuration
 ```shell
-set DB_URL=jdbc:postgresql://127.0.0.1:5432/my_db
+set DB_URL=jdbc:postgresql://127.0.0.1:5432/gps_track
 set DB_USERNAME=postgres
 set DB_PASSWORD=postgres
 ```
