@@ -11,6 +11,8 @@ Method: **POST**
 
 Path: `/api/gps`
 
+Authorization: **Bearer token** (token from endpoint Login)
+
 Request body:
 ```json
 {
@@ -82,6 +84,8 @@ Method: **GET**
 
 Path: `/api/vehicle/{id}/last-location`
 
+Authorization: **Bearer token** (token from endpoint Login)
+
 Request body: **No request body**
 
 
@@ -146,6 +150,8 @@ Response body: **No response body**
 Method: **GET**
 
 Path: `/api/vehicle/{id}/history?from={from}&to={to}`
+
+Authorization: **Bearer token** (token from endpoint Login)
 
 Request body: **No request body**
 
@@ -303,6 +309,47 @@ Status code: **403**
 Response body: **No response body**
 </details>
 
+
+<details>
+  <summary>Login to get JWT token</summary>
+
+### Request
+Method: **POST**
+
+Path: `/api/auth/login`
+
+Request body (form-data):
+```
+username: Akhsaul
+password: AkhsaulPassword
+```
+
+### Response body when successfully login
+Status code: **200**
+
+Response body:
+```json
+{
+    "status": "success",
+    "message": "successfully login",
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBa2hzYXVsIiwiaWF0IjoxNzQ2Mjg2MDkwLCJleHAiOjE3NDYzNzI0OTB9.eU8i2WO-2fVBZY2JKgl1HbFnqSyC06Hw7ao5zsyGxYLURNaocxtYwLfpSzN8friHVPwhYAeSyYvDrE8Ng8dAdQ"
+}
+```
+
+### Response body when username/password is not valid
+Status code: **401**
+
+Response body:
+```json
+{
+    "status": "error",
+    "message": "invalid username or password",
+    "token": null
+}
+```
+</details>
+
+
 ## Features
 1. saving GPS log
 2. get vehicle last location
@@ -346,24 +393,28 @@ set DB_PASSWORD=postgres
 ./gradlew assemble
 ```
 3. Install docker. See instruction from [docker](https://docs.docker.com/desktop/setup/install/windows-install/)
-4. Install postgresql. See instruction from [postgresql](https://www.postgresql.org/docs/17/tutorial-install.html)
-5. Create database
+4. Login GHCR for docker (required to pull image from GHCR)
+```shell
+docker login ghcr.io -u username -p github_personal_access_token
+```
+5. Install postgresql. See instruction from [postgresql](https://www.postgresql.org/docs/17/tutorial-install.html)
+6. Create database
 ```shell
 createdb gps_track
 ```
-6. Import database schema with file `schema.sql`
+7. Import database schema with file `schema.sql`
 ```shell
 psql -U postgres -f schema.sql gps_track
 ```
-7. Build the image
+8. Build the image
 ```shell
 docker build -t akhsaul/fleet-gps-track .
 ```
-8. Run it with specific environment (connect to postgresql via localhost)
+9. Run it with specific environment (connect to postgresql via localhost)
 ```shell
 docker run -d -p 8080:8080 --name fleet-gps-app -e DB_URL="jdbc:postgresql://host.docker.internal:5432/gps_track" -e DB_USERNAME="postgres" -e DB_PASSWORD="postgres" akhsaul/fleet-gps-track
 ```
-9. Test with Postman Collection
+10. Test with Postman Collection
    - import file `Fleet-GPS-Track.postman_collection.json` into your Postman
    - set vehicle id to collection environment (preferred) or global environment.
    - run login endpoint to get JWT token (automatic set token to collection environment)
