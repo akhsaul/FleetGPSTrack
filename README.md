@@ -335,7 +335,7 @@ set DB_PASSWORD=postgres
 1. Install JDK
 2. Build jar file
 ```shell
-./gradlew build
+./gradlew assemble
 ```
 3. Install docker. See instruction from [docker](https://docs.docker.com/desktop/setup/install/windows-install/)
 4. Install postgresql. See instruction from [postgresql](https://www.postgresql.org/docs/17/tutorial-install.html)
