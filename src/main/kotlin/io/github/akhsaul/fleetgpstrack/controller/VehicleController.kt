@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import java.time.Instant
+import java.time.temporal.ChronoUnit
 
 @RestController
 @RequestMapping("/api/vehicles")
@@ -67,7 +68,7 @@ class VehicleController(
             }
 
             to != null -> {
-                gpsLogService.getHistory(id, Instant.EPOCH, to)
+                gpsLogService.getHistory(id, to.minus(30, ChronoUnit.DAYS), to)
             }
 
             else -> {
