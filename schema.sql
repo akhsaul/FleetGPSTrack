@@ -125,6 +125,13 @@ ALTER TABLE ONLY public.vehicle
 
 
 --
+-- Name: idx_gps_log_vehicle_id_time_stamp; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_gps_log_vehicle_id_time_stamp ON public.gps_log USING btree (vehicle_id, time_stamp);
+
+
+--
 -- Name: gps_log gps_log_vehicle_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
