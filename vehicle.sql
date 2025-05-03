@@ -1,0 +1,10 @@
+insert into vehicle (plate_number, name, type) values ('P 2852 GJE', 'Blazer', 'Car');
+insert into vehicle (plate_number, name, type) values ('J 5046 KKD', 'Mulsanne', 'Truck');
+insert into vehicle (plate_number, name, type) values ('Y 1163 PHX', 'ES', 'Motorcycle');
+insert into vehicle (plate_number, name, type) values ('N 6374 CUE', 'Rodeo', 'Car');
+insert into vehicle (plate_number, name, type) values ('O 0162 WGW', 'C70', 'Truck');
+insert into vehicle (plate_number, name, type) values ('J 8589 PUI', 'MX-6', 'Motorcycle');
+insert into vehicle (plate_number, name, type) values ('O 9266 RCH', 'Monterey', 'Car');
+insert into vehicle (plate_number, name, type) values ('I 2666 ONN', 'Swift', 'Truck');
+insert into vehicle (plate_number, name, type) values ('T 4606 GGL', 'Sportage', 'Motorcycle');
+insert into vehicle (plate_number, name, type) values ('L 8635 PAT', 'RL', 'Car');
