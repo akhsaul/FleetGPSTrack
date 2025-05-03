@@ -313,38 +313,57 @@ Response body: **No response body**
 7. JWT authentication for all endpoint with **hardcoded credential**
 
 ## Setup
-1. Install JDK
+1. Install JDK. See instruction from [graalvm](https://www.graalvm.org/latest/getting-started/windows/)
 2. Install postgresql. See instruction from [postgresql](https://www.postgresql.org/docs/17/tutorial-install.html)
-3. Set your environment with your specific configuration
+3. Create database
+```shell
+createdb gps_track
+```
+4. Import database schema with file `schema.sql`
+```shell
+psql -U postgres -f schema.sql gps_track
+```
+5. Set your environment with your specific configuration
 ```shell
 set DB_URL=jdbc:postgresql://127.0.0.1:5432/gps_track
 set DB_USERNAME=postgres
 set DB_PASSWORD=postgres
 ```
-4. Run your springboot
+6. Run your springboot
 ```shell
 ./gradlew bootRun
 ```
-5. Test with Postman Collection
+7. Test with Postman Collection
    - import file `Fleet-GPS-Track.postman_collection.json` into your Postman
    - set vehicle id to collection environment (preferred) or global environment.
    - run login endpoint to get JWT token (automatic set token to collection environment)
 
 
 ## Run with docker
-1. Install JDK
+1. Install JDK. See instruction from [graalvm](https://www.graalvm.org/latest/getting-started/windows/)
 2. Build jar file
 ```shell
 ./gradlew assemble
 ```
 3. Install docker. See instruction from [docker](https://docs.docker.com/desktop/setup/install/windows-install/)
 4. Install postgresql. See instruction from [postgresql](https://www.postgresql.org/docs/17/tutorial-install.html)
-5. Setup database and table. Import database schema with file `schema.sql`
-6. Build the image
+5. Create database
+```shell
+createdb gps_track
+```
+6. Import database schema with file `schema.sql`
+```shell
+psql -U postgres -f schema.sql gps_track
+```
+7. Build the image
 ```shell
 docker build -t akhsaul/fleet-gps-track .
 ```
-7. Run it with specific environment (connect to postgresql via localhost)
+8. Run it with specific environment (connect to postgresql via localhost)
 ```shell
 docker run -d -p 8080:8080 --name fleet-gps-app -e DB_URL="jdbc:postgresql://host.docker.internal:5432/gps_track" -e DB_USERNAME="postgres" -e DB_PASSWORD="postgres" akhsaul/fleet-gps-track
 ```
+9. Test with Postman Collection
+   - import file `Fleet-GPS-Track.postman_collection.json` into your Postman
+   - set vehicle id to collection environment (preferred) or global environment.
+   - run login endpoint to get JWT token (automatic set token to collection environment)
