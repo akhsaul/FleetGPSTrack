@@ -47,7 +47,8 @@
 						"{{vehicleId}}",
 						"last-location"
 					]
-				}
+				},
+				"description": "Retrieves the most recent GPS location data for specific vehicle"
 			},
 			"response": []
 		},
@@ -94,14 +95,17 @@
 					"query": [
 						{
 							"key": "from",
-							"value": "2000-07-25T14:00:00Z"
+							"value": "2000-07-25T14:00:00Z",
+							"description": "A date with format ISO"
 						},
 						{
 							"key": "to",
-							"value": "2025-02-26T10:00:00Z"
+							"value": "2025-02-26T10:00:00Z",
+							"description": "A date with format ISO"
 						}
 					]
-				}
+				},
+				"description": "Retrieves all GPS location data for specific vehicle with specific date range"
 			},
 			"response": []
 		},
@@ -145,7 +149,8 @@
 						"{{vehicleId}}",
 						"history"
 					]
-				}
+				},
+				"description": "Retrieves all GPS location data for specific vehicle"
 			},
 			"response": []
 		},
@@ -192,10 +197,12 @@
 					"query": [
 						{
 							"key": "to",
-							"value": "2025-02-26T10:00:00Z"
+							"value": "2025-02-26T10:00:00Z",
+							"description": "A date with format ISO"
 						}
 					]
-				}
+				},
+				"description": "Retrieves all GPS location data for specific vehicle from 30-day ago until date `to`"
 			},
 			"response": []
 		},
@@ -242,10 +249,12 @@
 					"query": [
 						{
 							"key": "from",
-							"value": "2000-07-25T14:00:00Z"
+							"value": "2000-07-25T14:00:00Z",
+							"description": "A date with format ISO"
 						}
 					]
-				}
+				},
+				"description": "Retrieves all GPS location data for specific vehicle from date `from` until current date"
 			},
 			"response": []
 		},
@@ -296,7 +305,8 @@
 						"api",
 						"gps"
 					]
-				}
+				},
+				"description": "Save GPS log to database"
 			},
 			"response": []
 		},
@@ -358,7 +368,8 @@
 						"auth",
 						"login"
 					]
-				}
+				},
+				"description": "Login to get JWT token which can be used to authenticate endpoint"
 			},
 			"response": []
 		}
