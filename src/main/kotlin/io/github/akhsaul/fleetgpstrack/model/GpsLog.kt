@@ -29,7 +29,7 @@ data class GpsLog(
     @Column(nullable = false)
     val speed: Int,
 
-    @Column(nullable = false)
+    @Column(name="time_stamp", nullable = false)
     val timestamp: Instant,
 
     @Column(name = "speed_violation", nullable = false)

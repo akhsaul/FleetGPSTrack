@@ -1,4 +1,4 @@
-package io.github.akhsaul.fleetgpstrack.utils
+package io.github.akhsaul.fleetgpstrack.util
 
 import io.github.akhsaul.fleetgpstrack.model.RestResponse
 import org.springframework.http.HttpStatus

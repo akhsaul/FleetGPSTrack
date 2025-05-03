@@ -1,6 +1,6 @@
 package io.github.akhsaul.fleetgpstrack.controller
 
-import io.github.akhsaul.fleetgpstrack.utils.RestResponseBuilder
+import io.github.akhsaul.fleetgpstrack.util.RestResponseBuilder
 import io.github.akhsaul.fleetgpstrack.model.RestResponse
 import io.github.akhsaul.fleetgpstrack.service.GpsLogService
 import io.github.akhsaul.fleetgpstrack.service.VehicleService

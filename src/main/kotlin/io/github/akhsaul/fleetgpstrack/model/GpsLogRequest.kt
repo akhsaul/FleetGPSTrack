@@ -34,6 +34,7 @@ data class GpsLogRequest(
 
     @field:NotNull()
     @field:PastOrPresent()
+    @JsonProperty("time_stamp")
     val timestamp: Instant?
 )
 

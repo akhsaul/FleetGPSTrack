@@ -1,6 +1,6 @@
 package io.github.akhsaul.fleetgpstrack.controller
 
-import io.github.akhsaul.fleetgpstrack.utils.RestResponseBuilder
+import io.github.akhsaul.fleetgpstrack.util.RestResponseBuilder
 import io.github.akhsaul.fleetgpstrack.model.GpsLog
 import io.github.akhsaul.fleetgpstrack.model.GpsLogRequest
 import io.github.akhsaul.fleetgpstrack.model.RestResponse
@@ -45,7 +45,7 @@ class GpsController(private val gpsLogService: GpsLogService, private val vehicl
         )
 
         gpsLogService.saveLog(gpsLog)
-        return created("GPS log received successfully")
+        return created("Successfully save GPS log")
     }
 
     @ExceptionHandler(MethodArgumentNotValidException::class)
