@@ -105,7 +105,7 @@ Response body:
       "longitude": 162.017737,
       "speed": 44,
       "timestamp": "2023-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     }
   ]
 }
@@ -175,7 +175,7 @@ Response body:
       "longitude": 162.017737,
       "speed": 44,
       "timestamp": "2023-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     },
     {
       "id": 2,
@@ -184,7 +184,7 @@ Response body:
       "longitude": 102.017737,
       "speed": 80,
       "timestamp": "2020-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     }
   ]
 }
@@ -224,7 +224,7 @@ Response body:
       "longitude": 162.017737,
       "speed": 44,
       "timestamp": "2023-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     }
   ]
 }
@@ -250,7 +250,7 @@ Response body:
       "longitude": 162.017737,
       "speed": 44,
       "timestamp": "2025-01-10T10:00:00Z",
-      "speedViolation": false
+      "speed_violation": false
     }
   ]
 }
@@ -276,7 +276,7 @@ Response body:
       "longitude": 162.017737,
       "speed": 44,
       "timestamp": "2023-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     },
     {
       "id": 2,
@@ -285,7 +285,7 @@ Response body:
       "longitude": 102.017737,
       "speed": 80,
       "timestamp": "2020-12-18T22:03:43Z",
-      "speedViolation": false
+      "speed_violation": false
     }
   ]
 }
