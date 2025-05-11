@@ -1,0 +1,45 @@
+services:
+  config-server:
+    build: ./ConfigServer
+    ports:
+      - "8888:8888"
+    restart: on-failure
+    healthcheck:
+      test: "curl -f http://localhost:8888/actuator/health"
+      interval: 3s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: gps_track
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: on-failure
+    healthcheck:
+      test: "pg_isready -U postgres --host=localhost --port=5432"
+      interval: 3s
+      timeout: 5s
+      retries: 10
+      start_period: 3s
+  fleet-gps-track:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_CONFIG_IMPORT: configserver:http://config-server:8888
+      SPRING_PROFILES_ACTIVE: dev-docker
+    depends_on:
+      config-server:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    restart: on-failure
+volumes:
+  postgres_data:
+    name: postgres-data
