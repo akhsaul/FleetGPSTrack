@@ -6,5 +6,5 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class GpsLogConfig {
     @Value("\${gps.log.retention.days}")
-    val retentionDays: Long = 30
+    val retentionDays: Long = 180
 }
